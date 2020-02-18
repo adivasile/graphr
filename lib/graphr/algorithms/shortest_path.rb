@@ -22,11 +22,9 @@ module Graphr
         end
 
         while @unvisited.length > 0 do
-          
           min = get_min_distance_node
           current_node = min[0]
           current_distance = min[1]
-
 
           @graph.neighbours_for(current_node).each do |node|
             to_node = node[:id]
@@ -37,7 +35,6 @@ module Graphr
               @paths[to_node][:prev] = current_node
             end
           end
-
 
           @visited << current_node
           @unvisited.delete(current_node)
@@ -63,7 +60,6 @@ module Graphr
           distance: total_distance
         }
       end
-
 
       def get_min_distance_node
         min = @paths.slice(*@unvisited).sort_by{|k ,v| v[:distance]}.first

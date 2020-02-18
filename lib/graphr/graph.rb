@@ -38,7 +38,7 @@ module Graphr
     end
 
     def neighbours_for id
-      neighbour_ids = @edges.select{ |edge| edge[:from] == id }.map{ |edge| edge[:to] }
+      neighbour_ids = @edges.select { |edge| edge[:from] == id }.map { |edge| edge[:to] }
 
       @nodes.slice(*neighbour_ids).values
     end
